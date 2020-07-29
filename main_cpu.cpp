@@ -58,11 +58,9 @@ int main() {
         extra_pixel = (640-img_resize.rows)/2;
         flag=0;
     }
-    //cout<<"flag="<<flag<<endl;
-    //cout<<extra_pixel_cols<<" "<<extra_pixel_rows<<endl;
-    //cout<<extra_pixel_cols<<" "<<extra_pixel_cols+img_resize.cols<<endl;
+
     cv::Mat new_image = cv::Mat::zeros(640, 640,CV_8UC3);
-    //cv::Mat new_image = cv::Mat::zeros(640, 640,CV_8UC3);
+
 
 
     if(flag)
@@ -125,7 +123,7 @@ int main() {
 
     torch::jit::script::Module module;
     try {
-        module = torch::jit::load("/home/duwei/retinanet/retinanet.pt");
+        module = torch::jit::load("/home/duwei/retinanet/retinanet_cpu.pt");
     }
     catch (const c10::Error& e) {
         std::cerr << "error loading the model\n";
